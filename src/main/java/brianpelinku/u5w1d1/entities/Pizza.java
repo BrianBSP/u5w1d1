@@ -1,32 +1,73 @@
 package brianpelinku.u5w1d1.entities;
 
 
-import java.util.ArrayList;
+import lombok.Setter;
+
 import java.util.List;
 
 public class Pizza {
+    @Setter
     private String nome;
-    private double calorie;
+    private double kcal;
     private double prezzo;
-    private List<Topping> toppings;
+    @Setter
+    private List<Topping> listaTopping;
 
-    public Pizza(String nome, double calorie, double prezzo) {
+    // costruttori
+    public Pizza() {
+    }
+
+    public Pizza(String nome, List<Topping> listaTopping) {
         this.nome = nome;
-        this.calorie = calorie;
-        this.prezzo = prezzo;
-
+        this.kcal = setKcal(listaTopping);
+        this.prezzo = setPrezzo(listaTopping);
+        this.listaTopping = listaTopping;
     }
 
-    public void aggiungiTopping(Topping topping) {
-        this.toppings.add(topping);
+    // getter e setter
+    public String getNome() {
+        return nome;
     }
 
-    public double getTotalePrezzo() {
-        return prezzo + toppings.stream().mapToDouble(Topping::getPrezzo).sum();
+    public double getKcal() {
+        return kcal;
     }
 
-    public double getTotaleCalorie() {
-        return prezzo + toppings.stream().mapToDouble(Topping::getCalorie).sum();
+    public int setKcal(List<Topping> listaTopping) {
+        int tot = 1200;
+        if (listaTopping != null) {
+            for (Topping topping : listaTopping) {
+                tot += topping.getKcal();
+            }
+        }
+        return tot;
     }
 
+    public double getPrezzo() {
+        return prezzo;
+    }
+
+    public double setPrezzo(List<Topping> listaTopping) {
+        double tot = 4.5;
+        if (listaTopping != null) {
+            for (Topping topping : listaTopping) {
+                tot += topping.getPrezzo();
+            }
+        }
+        return tot;
+    }
+
+    public List<Topping> getListaTopping() {
+        return listaTopping;
+    }
+
+    @Override
+    public String toString() {
+        return "Pizza{" +
+                "nome='" + nome + '\'' +
+                ", kcal=" + kcal +
+                ", prezzo=" + prezzo +
+                ", listaTopping=" + listaTopping/*.stream().map(Object::toString).toList()*/ +
+                '}';
+    }
 }

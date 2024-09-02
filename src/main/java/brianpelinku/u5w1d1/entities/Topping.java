@@ -2,12 +2,12 @@ package brianpelinku.u5w1d1.entities;
 
 public class Topping {
     private String nome;
-    private double calorie;
+    private double kcal;
     private double prezzo;
 
-    public Topping(String nome, double calorie, double prezzo) {
+    public Topping(String nome, double kcal, double prezzo) {
         this.nome = nome;
-        this.calorie = calorie;
+        this.kcal = kcal;
         this.prezzo = prezzo;
     }
 
@@ -19,12 +19,12 @@ public class Topping {
         this.nome = nome;
     }
 
-    public double getCalorie() {
-        return calorie;
+    public double getKcal() {
+        return kcal;
     }
 
-    public void setCalorie(double calorie) {
-        this.calorie = calorie;
+    public void setKcal(double kcal) {
+        this.kcal = kcal;
     }
 
     public double getPrezzo() {
@@ -39,8 +39,8 @@ public class Topping {
     public String toString() {
         return "Topping{" +
                 "nome='" + nome + '\'' +
-                ", calorie= kcal " + calorie +
-                ", prezzo= € " + prezzo +
+                ", kcal=" + kcal +
+                ", prezzo=" + prezzo +
                 '}';
     }
 }
