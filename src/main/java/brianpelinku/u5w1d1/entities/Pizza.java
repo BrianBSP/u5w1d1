@@ -1,47 +1,32 @@
 package brianpelinku.u5w1d1.entities;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Pizza {
     private String nome;
     private double calorie;
     private double prezzo;
+    private List<Topping> toppings;
 
     public Pizza(String nome, double calorie, double prezzo) {
         this.nome = nome;
         this.calorie = calorie;
         this.prezzo = prezzo;
+
     }
 
-    public String getNome() {
-        return nome;
+    public void aggiungiTopping(Topping topping) {
+        this.toppings.add(topping);
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public double getTotalePrezzo() {
+        return prezzo + toppings.stream().mapToDouble(Topping::getPrezzo).sum();
     }
 
-    public double getCalorie() {
-        return calorie;
+    public double getTotaleCalorie() {
+        return prezzo + toppings.stream().mapToDouble(Topping::getCalorie).sum();
     }
 
-    public void setCalorie(double calorie) {
-        this.calorie = calorie;
-    }
-
-    public double getPrezzo() {
-        return prezzo;
-    }
-
-    public void setPrezzo(double prezzo) {
-        this.prezzo = prezzo;
-    }
-
-    @Override
-    public String toString() {
-        return "Pizza{" +
-                "nome='" + nome + '\'' +
-                ", calorie= kcal " + calorie +
-                ", prezzo= € " + prezzo +
-                '}';
-    }
 }

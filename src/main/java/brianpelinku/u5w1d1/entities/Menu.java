@@ -4,38 +4,25 @@ import java.util.List;
 
 public class Menu {
     private List<Pizza> pizze;
-    private List<Topping> toppings;
     private List<Bevande> bevande;
 
-    public Menu(List<Pizza> pizze, List<Topping> toppings, List<Bevande> bevande) {
-        this.pizze = pizze;
-        this.toppings = toppings;
-        this.bevande = bevande;
+    public void aggiungiPizza(Pizza pizza) {
+        pizze.add(pizza);
     }
 
-    public List<Pizza> getPizze() {
-        return pizze;
+    public void aggiungiBevanda(Bevande bevanda) {
+        bevande.add(bevanda);
     }
 
-    public void setPizze(List<Pizza> pizze) {
-        this.pizze = pizze;
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("---- MENU ----\n");
+        sb.append("-- Pizze: \n");
+        pizze.forEach(pizza -> sb.append(pizza).append("\n"));
+        sb.append("-- Bevande: \n");
+        bevande.forEach(bevanda -> sb.append(bevanda).append("\n"));
+        return sb.toString();
     }
-
-    public List<Topping> getToppings() {
-        return toppings;
-    }
-
-    public void setToppings(List<Topping> toppings) {
-        this.toppings = toppings;
-    }
-
-    public List<Bevande> getBevande() {
-        return bevande;
-    }
-
-    public void setBevande(List<Bevande> bevande) {
-        this.bevande = bevande;
-    }
-
 
 }

@@ -11,30 +11,6 @@ public class Bevande {
         this.prezzo = prezzo;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public double getCalorie() {
-        return calorie;
-    }
-
-    public void setCalorie(double calorie) {
-        this.calorie = calorie;
-    }
-
-    public double getPrezzo() {
-        return prezzo;
-    }
-
-    public void setPrezzo(double prezzo) {
-        this.prezzo = prezzo;
-    }
-
     @Override
     public String toString() {
         return "Bevande{" +
